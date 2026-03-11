@@ -6,7 +6,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
-genai.configure(api_key="AIzaSyBer3hXeICXaxC2CtGzy0cMvsALFIUDvd4")
+genai.configure(api_key="AIzaSyCWpLTEz8749P_xa94HwIB1mtqQsYauBw0")
 
 model = genai.GenerativeModel("gemini-2.5-flash")
 
@@ -132,4 +132,5 @@ def index():
 
 
 if __name__ == "__main__":
+
     app.run(debug=True)
