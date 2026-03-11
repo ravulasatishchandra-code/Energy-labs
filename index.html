@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Task Orchestrator</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+<p class="tagline">INTELLIGENT CONTEXT-AWARE</p>
+
+<h1>AI Task Orchestrator</h1>
+
+<p class="subtitle">
+AI-powered task extraction and project schedule validation
+</p>
+
+</header>
+
+
+<div class="input-container">
+
+<form method="POST" enctype="multipart/form-data">
+
+<p class="label">MEETING TRANSCRIPT</p>
+
+<textarea name="transcript"
+placeholder="Paste your meeting transcript here..."></textarea>
+
+
+<p class="label">UPLOAD WBS CSV</p>
+
+<div class="upload-box">
+<input type="file" name="csvfile" accept=".csv">
+</div>
+
+
+<div class="btn-area">
+<button onclick="showProcessing()">Generate Tasks</button>
+</div>
+
+<div id="processing" class="processing">
+Processing transcript and schedule...
+</div>
+
+</form>
+
+</div>
+
+
+{% if tasks %}
+
+<section class="results">
+
+<div class="results-header">
+
+<div>
+<h2>Extracted Tasks</h2>
+<p class="task-count">{{tasks|length}} tasks identified</p>
+</div>
+
+<div class="task-stats">
+
+<span><span class="dot high"></span>{{stats.high}} High</span>
+<span><span class="dot medium"></span>{{stats.medium}} Medium</span>
+<span><span class="dot low"></span>{{stats.low}} Low</span>
+<span class="conflicts">{{stats.conflicts}} Conflicts</span>
+
+</div>
+
+</div>
+
+
+<div class="task-grid">
+
+{% for task in tasks %}
+
+<div class="task-card {% if task.conflict_flag %}conflict-card{% endif %}">
+
+<div class="card-head">
+
+<h3>{{task.task}}</h3>
+
+<span class="priority-tag {{task.priority|lower}}">
+{{task.priority}}
+</span>
+
+</div>
+
+
+<div class="meta">
+
+<div class="row">
+<span>Assignee</span>
+<span>{{task.assignee}}</span>
+</div>
+
+<div class="row">
+<span>Deadline</span>
+<span>{{task.deadline}}</span>
+</div>
+
+<div class="row score-row">
+
+<span>Priority Score</span>
+
+<div class="score-bar">
+<div class="score-fill {{task.priority|lower}}"
+style="width: {{task.priority_score * 10}}%"></div>
+</div>
+
+<span class="score-number">{{task.priority_score * 10}}</span>
+
+</div>
+
+</div>
+
+
+{% if task.conflict_flag %}
+
+<div class="conflict-text">
+{{task.conflict_reason}}
+</div>
+
+{% endif %}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</section>
+
+{% endif %}
+
+
+{% if wbs_conflicts %}
+
+<section class="results">
+
+<h2>WBS Schedule Issues</h2>
+
+<div class="task-grid">
+
+{% for c in wbs_conflicts %}
+
+<div class="task-card conflict-card">
+
+<div class="card-head">
+<h3>{{c.task}}</h3>
+<span class="priority-tag high">LOGIC ERROR</span>
+</div>
+
+<div class="conflict-text">
+{{c.reason}}
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</section>
+
+{% endif %}
+
+</div>
+
+
+<script>
+
+function showProcessing(){
+
+document.getElementById("processing").style.display="block";
+
+}
+
+</script>
+
+</body>
+</html>
