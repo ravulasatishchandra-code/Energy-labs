@@ -1,16 +1,8 @@
 # Energy-labs
 Project Structure
-AI-Task-Orchestrator/
-│
-├─ app.py                 # Flask backend
-├─ templates/
-│   └─ index.html         # HTML template
-├─ static/
-│   └─ style.css          # Styling
-├─ wbs_sample.csv         # Sample WBS CSV
-└─ README.md              # Documentation
 
-image for file formaat : (i'll keep in this file but if it's not clear go through this ( <img width="505" height="184" alt="image" src="https://github.com/user-attachments/assets/42c1bc21-633a-4a10-9353-36abb4a67424" />  )
+
+image for file formaat :  ( <img width="505" height="184" alt="image" src="https://github.com/user-attachments/assets/42c1bc21-633a-4a10-9353-36abb4a67424" />  )
 
 
 
