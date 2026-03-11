@@ -38,6 +38,6 @@ Emily: I’ll also coordinate with the QA team to ensure testing is ready after 
 For WBS FILE: i've uploded in the git it self with ".csv" extension.
 ---------------------------------------------------------------------------------
 
-the API KEY= "AIzaSyBer3hXeICXaxC2CtGzy0cMvsALFIUDvd4"
+the API KEY= "AIzaSyCWpLTEz8749P_xa94HwIB1mtqQsYauBw0"
 
 **NOTE: It's gemini api key so that it has so limit if expire have to use new key.**
