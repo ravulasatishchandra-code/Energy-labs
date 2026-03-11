@@ -10,6 +10,9 @@ AI-Task-Orchestrator/
 ├─ wbs_sample.csv         # Sample WBS CSV
 └─ README.md              # Documentation
 
+image for file formaat : (i'll keep in this file but if it's not clear go through this ( <img width="505" height="184" alt="image" src="https://github.com/user-attachments/assets/42c1bc21-633a-4a10-9353-36abb4a67424" />  )
+
+
 
 **We can also directly download the Zip file and Unzip it and use it**
 
