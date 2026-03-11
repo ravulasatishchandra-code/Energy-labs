@@ -40,4 +40,6 @@ For WBS FILE: i've uploded in the git it self with ".csv" extension.
 
 the API KEY= "AIzaSyCWpLTEz8749P_xa94HwIB1mtqQsYauBw0"
 
+**LOOM LINK : https://www.loom.com/share/07cd7211637f498aa114b05260c93cf7**
+
 **NOTE: It's gemini api key so that it has so limit if expire have to use new key.**
